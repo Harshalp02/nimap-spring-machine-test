@@ -35,7 +35,8 @@ public class CategoryService {
         Optional<Category> categoryOptional = getCategoryById(id);
         if (categoryOptional.isPresent()) {
             Category category = categoryOptional.get();
-            category.setName(categoryDetails.getName());  // Assuming Category has a 'name' field
+            category.setName(categoryDetails.getName());
+            // Handle products or other fields if needed
             return categoryRepository.save(category);
         }
         return null; // Handle this case as needed
