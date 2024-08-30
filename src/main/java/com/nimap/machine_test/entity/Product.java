@@ -1,5 +1,6 @@
 package com.nimap.machine_test.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,5 +18,6 @@ public class Product {
     private Double price;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id",nullable = false)
+    @JsonBackReference
     private Category category;
 }

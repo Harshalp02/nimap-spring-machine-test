@@ -24,7 +24,7 @@ public class ProductController {
     }
 
     // GET a single product by ID
-    @GetMapping("/{di}")
+    @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         Optional<Product> product = productService.getProductById(id);
         return product.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -37,7 +37,7 @@ public class ProductController {
     }
 
     // PUT - update product by ID
-    @PutMapping("/{di}")
+    @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product productDetails) {
         Product updatedProduct = productService.updateProduct(id, productDetails);
         if (updatedProduct != null) {
@@ -48,7 +48,7 @@ public class ProductController {
     }
 
     // DELETE - delete product by ID
-    @DeleteMapping("/{di}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
